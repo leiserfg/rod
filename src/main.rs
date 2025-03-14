@@ -9,7 +9,7 @@ use clap::{Parser, Subcommand};
 use std::ffi::OsString;
 
 #[derive(Debug, Parser)]
-#[command(name = "rot")]
+#[command(name = "rod")]
 #[command(about = "Terminal background color recognizer", long_about = None)]
 pub(crate) struct Cli {
     #[command(subcommand)]

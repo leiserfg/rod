@@ -1,20 +1,20 @@
-# Command-Line Help for `rot`
+# Command-Line Help for `rod`
 
-This document contains the help content for the `rot` command-line program.
+This document contains the help content for the `rod` command-line program.
 
 **Command Overview:**
 
-* [`rot`↴](#rot)
-* [`rot print`↴](#rot-print)
-* [`rot env`↴](#rot-env)
-* [`rot example`↴](#rot-example)
-* [`rot run`↴](#rot-run)
+* [`rod`↴](#rod)
+* [`rod print`↴](#rod-print)
+* [`rod env`↴](#rod-env)
+* [`rod example`↴](#rod-example)
+* [`rod run`↴](#rod-run)
 
-## `rot`
+## `rod`
 
 Terminal background color recognizer
 
-**Usage:** `rot <COMMAND>`
+**Usage:** `rod <COMMAND>`
 
 ###### **Subcommands:**
 
@@ -25,19 +25,19 @@ Terminal background color recognizer
 
 
 
-## `rot print`
+## `rod print`
 
 Print current background type
 
-**Usage:** `rot print`
+**Usage:** `rod print`
 
 
 
-## `rot env`
+## `rod env`
 
 Global environment from matching the current background
 
-**Usage:** `rot env [OPTIONS]`
+**Usage:** `rod env [OPTIONS]`
 
 ###### **Options:**
 
@@ -45,19 +45,19 @@ Global environment from matching the current background
 
 
 
-## `rot example`
+## `rod example`
 
 Show example config
 
-**Usage:** `rot example`
+**Usage:** `rod example`
 
 
 
-## `rot run`
+## `rod run`
 
 Run command after extending the arguments given and environment as per settings and current background
 
-**Usage:** `rot run [OPTIONS] [COMMAND]...`
+**Usage:** `rod run [OPTIONS] [COMMAND]...`
 
 ###### **Arguments:**
 
