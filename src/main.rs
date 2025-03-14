@@ -14,6 +14,8 @@ use std::ffi::OsString;
 pub(crate) struct Cli {
     #[command(subcommand)]
     pub(crate) command: Commands,
+    #[arg(long, hide = true)]
+    markdown_help: bool,
 }
 
 #[derive(Debug, Subcommand)]
@@ -42,6 +44,14 @@ macro_rules! utf {
 
 fn main() {
     let bin = Cli::parse();
+
+    #[cfg(debug_assertions)]
+    {
+        if bin.markdown_help {
+            clap_markdown::print_help_markdown::<Cli>();
+            return;
+        }
+    }
 
     if matches!(bin.command, Commands::Example) {
         println!("{}", config::Config::example());
