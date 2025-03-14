@@ -13,27 +13,26 @@ pub(crate) fn probe() -> Option<Background> {
     let tty_raw = tty.borrow().into_raw_mode().expect("Can't use raw");
 
     // We need to read char by char cause the message does not end in \n
-    let mut state = 0 as char;
-    let mut is_this_one = false;
+    let mut buff = String::new();
+
+    let mut to_read = 8usize;
+    buff.reserve(to_read);
 
     for b in tty_raw.keys() {
         if let Key::Char(c) = b.expect("Error reading") {
-            if is_this_one {
-                is_this_one = false;
-                state = c;
-            }
-            if c == ';' && state == 0u8 as char {
-                is_this_one = true;
-            }
             if c == 'c' {
                 break;
+            }
+            if to_read > 0 {
+                buff.push(c);
+                to_read -= 1;
             }
         }
     }
 
-    match state {
-        '1' => Some(Background::Dark),
-        '2' => Some(Background::Light),
+    match buff.as_str() {
+        "997;1n62" => Some(Background::Dark),
+        "997;2n62" => Some(Background::Light),
         _ => None,
     }
 }
