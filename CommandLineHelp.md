@@ -19,7 +19,7 @@ Terminal background color recognizer
 ###### **Subcommands:**
 
 * `print` — Print current background type
-* `env` — Print global environment from matching the current background
+* `env` — Global environment from matching the current background
 * `example` — Show example config
 * `run` — Run command after extending the arguments given and environment as per settings and current background
 
@@ -35,9 +35,13 @@ Print current background type
 
 ## `rot env`
 
-Print global environment from matching the current background
+Global environment from matching the current background
 
-**Usage:** `rot env`
+**Usage:** `rot env [OPTIONS]`
+
+###### **Options:**
+
+* `-n`, `--no-export`
 
 
 

@@ -22,8 +22,11 @@ pub(crate) struct Cli {
 pub(crate) enum Commands {
     #[command(about = "Print current background type", long_about = None)]
     Print,
-    #[command(about = "Print global environment from matching the current background", long_about = None)]
-    Env,
+    #[command(about = "Global environment from matching the current background", long_about = None)]
+    Env { 
+        #[arg(short, long)]
+        no_export: bool 
+    },
     #[command(about = "Show example config", long_about = None)]
     Example,
     #[command(arg_required_else_help = true, about = "Run command after extending the arguments given and environment as per settings and current background", long_about = None)]
@@ -77,8 +80,11 @@ fn main() {
         Commands::Print => {
             println!("{background:?}");
         }
-        Commands::Env => {
+        Commands::Env { no_export } => {
             for (k, v) in global_env {
+                if !no_export {
+                    print!("export ")
+                };
                 println!("{k}={v}");
             }
         }
