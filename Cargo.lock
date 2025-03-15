@@ -277,6 +277,7 @@ dependencies = [
  "clap",
  "clap-markdown",
  "dirs",
+ "libc",
  "serde",
  "termion",
  "toml",
