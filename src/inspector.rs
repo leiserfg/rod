@@ -10,9 +10,14 @@ use termion::{get_tty, raw::IntoRawMode};
 #[cfg(target_os = "linux")]
 fn is_linux_console(tty: &File) -> bool {
     use std::os::fd::AsRawFd;
-    use std::os::raw::c_ulong;
+
     let mode = 0usize; // We won't use the mode but we still need to pass it to ioctl
-    const KDGETMODE: c_ulong = 0x4B3B;
+
+    #[cfg(not(target_env = "musl"))]
+    const KDGETMODE: u64 = 0x4B3B;
+
+    #[cfg(target_env = "musl")]
+    const KDGETMODE: i32 = 0x4B3B;
 
     unsafe { libc::ioctl(tty.as_raw_fd(), KDGETMODE, &mode) == 0 }
 }
