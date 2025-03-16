@@ -2,6 +2,9 @@
 name = "rod"
 version = "0.1.8"
 edition = "2024"
+description = "CLI tool for Dark and Light Mode detection"
+homepage = "https://github.com/leiserfg/rod"
+authors = ["Leiser Fernández Gallo <leiserfg@gmail.com>"]
 
 [dependencies]
 clap = { version = "4.5.32", features = ["derive"] }
