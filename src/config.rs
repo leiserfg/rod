@@ -67,21 +67,38 @@ impl Config {
             light: GlobalTheme {
                 env: HashMap::from_iter([("THEME".to_string(), "light".to_string())]),
             },
-            cmds: HashMap::from_iter([(
-                "fzf".to_string(),
-                CommandThemes {
-                    dark: ThemeConf {
-                        env: HashMap::new(),
-                        pre_args: vec!["--color=dark".to_string()],
-                        pos_args: vec![],
+            cmds: HashMap::from_iter([
+                (
+                    "test_cmd".to_string(),
+                    CommandThemes {
+                        dark: ThemeConf {
+                            env: HashMap::from_iter([("COLOR".to_string(), "dark".to_string())]),
+                            pre_args: vec![],
+                            pos_args: vec!["--color=dark".to_string()],
+                        },
+                        light: ThemeConf {
+                            env: HashMap::from_iter([("COLOR".to_string(), "light".to_string())]),
+                            pre_args: vec![],
+                            pos_args: vec!["--color=dark".to_string()],
+                        },
                     },
-                    light: ThemeConf {
-                        env: HashMap::new(),
-                        pre_args: vec!["--color=light".to_string()],
-                        pos_args: vec![],
+                ),
+                (
+                    "fzf".to_string(),
+                    CommandThemes {
+                        dark: ThemeConf {
+                            env: HashMap::new(),
+                            pre_args: vec!["--color=dark".to_string()],
+                            pos_args: vec![],
+                        },
+                        light: ThemeConf {
+                            env: HashMap::new(),
+                            pre_args: vec!["--color=light".to_string()],
+                            pos_args: vec![],
+                        },
                     },
-                },
-            )]),
+                ),
+            ]),
         };
         toml::to_string(&cfg).unwrap()
     }

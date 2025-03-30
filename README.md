@@ -1,8 +1,12 @@
-# rod: Dark/Light Mode Detection Tool
+# rod: Terminal Dark/Light Mode Detection Tool
 
-Tool for [Dark and Light Mode detection](https://github.com/contour-terminal/contour/blob/master/docs/vt-extensions/color-palette-update-notifications.md#dark-and-light-mode-detection)
+Tool for [Terminal Dark and Light Mode detection](https://github.com/contour-terminal/contour/blob/master/docs/vt-extensions/color-palette-update-notifications.md#dark-and-light-mode-detection)
 
-## How to Use rod
+## What is this for?
+Some modern terminals (such as contour, kitty, and ghostty) allow querying whether the terminal has a dark or light background. This information can be used to select the color palette of TUI/CLI applications. However, only a few applications currently utilize this feature. This tool aims to bridge the gap until this protocol becomes more widely adopted by implementing it before the command is executed.
+
+
+## How to use rod
 
 `rod` offers three ways to integrate with your terminal applications: aliases, direct printing, and environment variable manipulation.
 
@@ -59,6 +63,10 @@ rod_trap () {
 }
 trap 'rod_trap' DEBUG
 ```
+
+## How to configure it
+Configuration goes in `~/.config/rod/config.toml`, it will be created if missing when you run rod for the first time.
+Run `rod example` to see a full, updated (and hopefully self-explanatory) example.
 
 ## Installation
 You can find pre-build binaries in the releases.
