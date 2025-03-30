@@ -32,14 +32,14 @@ This method is ideal for applications that read theme settings from environment 
 
 ```fish
 function preexec_rod --on-event fish_preexec
-    env rod | source
+    rod env | source
 endy
 ```
 
 #### zsh:
 ```bash
 preexec () {
-    env rod | source
+    rod env | source
 }
 ```
 
@@ -50,7 +50,7 @@ Sadly there is not a proper `preexec` mechanism in bash. So to use this method w
 
 ```bash
 preexec () {
-    env rod | source
+    rod env | source
 }
 ```
 
