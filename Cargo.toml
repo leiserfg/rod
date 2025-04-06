@@ -1,6 +1,6 @@
 [package]
 name = "rod"
-version = "0.1.9"
+version = "0.1.10"
 edition = "2024"
 description = "CLI tool for Dark and Light Mode detection"
 homepage = "https://github.com/leiserfg/rod"
@@ -10,6 +10,7 @@ authors = ["Leiser Fernández Gallo <leiserfg@gmail.com>"]
 clap = { version = "4.5.32", features = ["derive"] }
 clap-markdown = "0.1.4"
 dirs = "6.0.0"
+enum-display = "0.1.4"
 libc = "0.2.171"
 serde = { version = "1.0.217", features = ["serde_derive"] }
 termion = "4.0.4"

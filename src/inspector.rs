@@ -1,10 +1,12 @@
 use std::{fs::File, io::Read};
+use enum_display::EnumDisplay;
 
-#[derive(Debug, PartialEq)]
+#[derive(EnumDisplay, PartialEq)]
 pub(crate) enum Background {
     Dark,
     Light,
 }
+
 use termion::{get_tty, raw::IntoRawMode};
 
 #[cfg(target_os = "linux")]

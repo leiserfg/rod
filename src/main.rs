@@ -23,9 +23,9 @@ pub(crate) enum Commands {
     #[command(about = "Print current background type", long_about = None)]
     Print,
     #[command(about = "Global environment from matching the current background", long_about = None)]
-    Env { 
+    Env {
         #[arg(short, long)]
-        no_export: bool 
+        no_export: bool,
     },
     #[command(about = "Show example config", long_about = None)]
     Example,
@@ -78,7 +78,7 @@ fn main() {
 
     match bin.command {
         Commands::Print => {
-            println!("{background:?}");
+            println!("{background}");
         }
         Commands::Env { no_export } => {
             for (k, v) in global_env {
