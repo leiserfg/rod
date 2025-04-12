@@ -1,9 +1,8 @@
-use inspector::Background;
 use std::path::Path;
 use std::{os::unix::process::CommandExt, process::Command};
 
 mod config;
-mod inspector;
+use terminal_colorsaurus::{ColorScheme, QueryOptions, color_scheme};
 
 use clap::{Parser, Subcommand};
 use std::ffi::OsString;
@@ -62,13 +61,17 @@ fn main() {
     }
 
     let cfg = config::Config::parse();
-    let background = inspector::probe().unwrap_or(if cfg.fallback_to_light {
-        Background::Light
-    } else {
-        Background::Dark
-    });
 
-    let bg_is_dark = background == Background::Dark;
+    let (bg_is_dark, name) = if ColorScheme::Dark
+        == color_scheme(QueryOptions::default()).unwrap_or(if cfg.fallback_to_light {
+            ColorScheme::Light
+        } else {
+            ColorScheme::Dark
+        }) {
+        (true, "Dark")
+    } else {
+        (false, "Light")
+    };
 
     let global_env = if bg_is_dark {
         cfg.dark.env
@@ -78,7 +81,7 @@ fn main() {
 
     match bin.command {
         Commands::Print => {
-            println!("{background}");
+            println!("{}", name);
         }
         Commands::Env { no_export } => {
             for (k, v) in global_env {

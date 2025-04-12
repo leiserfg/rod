@@ -1,9 +1,12 @@
 # rod: Terminal Dark/Light Mode Detection Tool
 
-Tool for [Terminal Dark and Light Mode detection](https://github.com/contour-terminal/contour/blob/master/docs/vt-extensions/color-palette-update-notifications.md#dark-and-light-mode-detection)
+Tool for detecting the lightness of the terminal background.
+
+Note:
+We used to use [Terminal Dark and Light Mode detection](https://github.com/contour-terminal/contour/blob/master/docs/vt-extensions/color-palette-update-notifications.md#dark-and-light-mode-detection) but now we are using [terminal-colorsaurus](https://github.com/bash/terminal-colorsaurus), so rod works in more terminals.
 
 ## What is this for?
-Some modern terminals (such as contour, kitty, and ghostty) allow querying whether the terminal has a dark or light background. This information can be used to select the color palette of TUI/CLI applications. However, only a few applications currently utilize this feature. This tool aims to bridge the gap until this protocol becomes more widely adopted by implementing it before the command is executed.
+Detecting the background lightness  can be used to select the color palette of TUI/CLI applications. However, only a few applications currently utilize this feature. This tool aims to bridge the gap until those apps do it.
 
 
 ## How to use rod
