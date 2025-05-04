@@ -1,6 +1,6 @@
 [package]
 name = "rod"
-version = "0.1.10"
+version = "0.1.11"
 edition = "2024"
 description = "CLI tool for Dark and Light Mode detection"
 homepage = "https://github.com/leiserfg/rod"
@@ -14,6 +14,12 @@ serde = { version = "1.0.217", features = ["serde_derive"] }
 toml = "0.8.19"
 terminal-colorsaurus = "0.4.8"
 
+
+[profile.dev.package.clap_derive]
+opt-level = 3
+
+[profile.dev.package.serde_derive]
+opt-level = 3
 
 [profile.release]
 opt-level = 3
