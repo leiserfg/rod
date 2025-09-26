@@ -111,6 +111,7 @@ fn main() {
                 command.args(&cmd_conf_bg.pre_args);
                 command.args(&args[1..args.len()]);
                 command.args(&cmd_conf_bg.pos_args);
+                command.envs(&cmd_conf_bg.env);
             } else {
                 command.args(&args[1..args.len()]);
             }
